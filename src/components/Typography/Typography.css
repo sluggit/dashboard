@@ -1,0 +1,29 @@
+.typepography-container{
+    width:100%;
+    padding:40px 30px 0px 30px;
+}
+.typepography-header{
+    color:var(--primary-text);
+    font-weight: 600;
+    font-size:var(--fontsize-xl2);
+    margin-bottom:10px;
+}
+.typepography-login-header{
+    color:var(--primary-text);
+    font-weight: 600;
+    font-size:22px;
+    margin-bottom:10px;
+}
+.typepography-paragraph{
+    color:var(--secondary-text);
+    font-size: var(--fontsize-sm);
+
+}
+.typepography-paragraph a{
+    color:var(--primary-text);
+    text-decoration: none;
+    font-weight: 600;
+}
+.typepography-paragraph a:hover{
+    text-decoration: underline;
+}
