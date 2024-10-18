@@ -38,8 +38,8 @@ function App() {
   return (
     <div className="App">
       <Routes>
-      <Route path="/" element={<Home/>} />
-        <Route path="/dashboard" element={<Dashboard
+      <Route path="/dashboard" element={<Home/>} />
+        <Route path="/" element={<Dashboard
           toggleMode={toggleMode}
           toggleFullScreen={toggleFullScreen}
           loading={loading}

@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
 import "./SideBar.css";
+
+
+// --------------------- ICONS ------------------------------
 import { IoHome } from "react-icons/io5";
 import { IoIosPeople } from "react-icons/io";
 import { IoNotifications } from "react-icons/io5";
@@ -8,7 +11,10 @@ import { FaGear } from "react-icons/fa6";
 import { AiFillProduct } from "react-icons/ai";
 import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 import { RxHamburgerMenu } from "react-icons/rx";
+//------------------------------------------------------------
 
+
+// --------------------- DATA ------------------------------
 export const SideBarData = [
   { id: 1, icon: <IoHome />, title: "Home", path: "/home" },
   { id: 2, icon: <IoIosPeople />, title: "Employee", path: "/about" },
@@ -63,17 +69,18 @@ export const SideBarData = [
   { id: 15, icon: <IoHome />, title: "Services", path: "/services" },
   { id: 16, icon: <IoHome />, title: "Home", path: "/home" },
 ];
+//-------------------------------------------------------------------------------------
 
+
+// --------------------- SUBMENU COMPONENT --------------------------------------------
 export const SubMenu = ({ item, expand }) => {
   const [isActive, setIsActive] = useState(false);
   const [hoverSubMenu, setHoverSubMenu] = useState(false);
   const submenuRef = useRef(null);
-
-  // --------------------- SUBMENU SECTION --------------------------------------------
-
   const [activeItem, setActiveItem] = useState(null);
   const [submenuPosition, setSubmenuPosition] = useState({ top: 0, left: 0 });
 
+  // --------------------- GETS THE POSITION FOR PRTAL -----------------------
   const handleMouseEnter = (id, event) => {
     const rect = event.target.getBoundingClientRect();
     setSubmenuPosition({ top: rect.top, left: rect.right });
@@ -83,7 +90,6 @@ export const SubMenu = ({ item, expand }) => {
   const handleMouseLeave = () => {
     setActiveItem(null);
   };
-  //-----------------------------------------------------------------------------------
 
   // --------------------- EXPAND SUBMENU WHEN EXPAND is TRUE  -----------------------
   useEffect(() => {
@@ -93,7 +99,7 @@ export const SubMenu = ({ item, expand }) => {
       submenuRef.current.style.maxHeight = "0px";
     }
   }, [isActive, expand]);
-  //-----------------------------------------------------------------------------------
+
 
   return (
     <div className={`sidebar-submenu-container `} onMouseLeave={handleMouseLeave}>
@@ -101,7 +107,7 @@ export const SubMenu = ({ item, expand }) => {
         onClick={(e) => {
           expand && setIsActive(!isActive);
         }}
-        onMouseEnter={(e) => handleMouseEnter(item.id, e)}
+        onMouseEnter={(e) => expand ? null :handleMouseEnter(item.id, e)}
         className={`sidebar-menu-item ${expand ? "" : "active"}`}
       >
         <div className={`sidebar-menu-item-icon ${expand ? "" : "active"}`}>
@@ -193,6 +199,7 @@ const SideBar = ({ expand, toggleSideBar }) => {
       <nav
         className="sidebar-menu-container sidebar-menu-spacer"
         style={{ overflowY: isHovered ? "scroll" : "hidden" }}
+        onTouchStart={() => setIsHovered(true)}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >

@@ -71,8 +71,8 @@ const MainCharts = () => {
           <YAxis />
           <Tooltip />
           <Legend />
-          <Line type="monotone" dataKey="pv2" stroke="#fd6529" activeDot={{ r: 8 }} />
-          <Line type="monotone" dataKey="uv2" stroke="#758696" />
+          <Line type="monotone" dataKey="pv2" stroke="#fd6529" strokeWidth={4} activeDot={{ r: 8 }} />
+          <Line type="monotone" dataKey="uv2" stroke="#758696" strokeWidth={4} />
         </LineChart>
       </ResponsiveContainer>
     

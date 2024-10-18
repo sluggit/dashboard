@@ -3,12 +3,12 @@
     top: 0;
     width: 100px;
     height: 100vh;
-    background-color: var(--background-color);
+    background-color: var(--sidebar-background-color);
     display: flex;
     z-index: 100;
     flex-direction: column;
     padding-top: 0px;
-    transition: width 0.3s;
+     transition: all 0.3s ease;
     border-right: 1px solid var(--border-color);
 }
 
@@ -21,7 +21,7 @@
     height: 100%;
     overflow-y: scroll;
     position: relative;
-    padding: 0px 5px;
+    padding: 15px 5px 0 5px;
     display: flex;
     flex-direction: column;
     margin-right: 8px;
@@ -31,6 +31,7 @@
 
 .sidebar-menu-container.active {
     overflow-y: hidden;
+    
 }
 
 .sidebar-logo-container {
@@ -39,7 +40,7 @@
     top: 0px;
     display: flex;
     align-items: center;
-    background-color: var(--background-color);
+    background-color: var(--sidebar-background-color);
     padding-left: 20px;
     z-index: 10; /* Added z-index */
 }
@@ -83,16 +84,17 @@
 }
 
 .sidebar-menu-item {
+    width:260px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     position: relative;
-    padding: 12px 16px;
-    margin-bottom: 0px;
+    padding: 10px 16px;
+    margin-bottom: 2px;
     margin-left: 5px;
     border-radius: 8px;
     color: var(--secondary-text);
-    font-weight: 500;
+    font-weight:600;
     text-decoration: none;
     transition: background-color 0.1s;
     border: solid 0px rgb(255, 0, 230);
@@ -110,13 +112,19 @@
 
 .sidebar-menu-item:hover {
     background-color: var(--hover-action-color);
+    .sidebar-menu-item-icon {
+        color: var(--icon-hover);
+    }
+    .sidebar-menu-item-title{
+        color: var(--icon-hover);
+    }
 }
 
 .sidebar-menu-item-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
+    font-size: 19px;
     margin-right: 15px;
     color: var(--icon-color);
     border: solid 0px red;
@@ -136,6 +144,10 @@
     border: solid 0px red;
     font-size: 14px;
     position: relative;
+}
+
+.sidebar-menu-item-title-clicked{
+    color: var(--icon-hover);
 }
 
 .sidebar-menu-item-title.active {
@@ -168,7 +180,7 @@
     right: -14px; /* Adjust this value to control how much it sticks out */
     transform: translateY(-50%); /* Center vertically */
     cursor: pointer;
-    color: var(--secondary-text);
+    color: var(--icon-color);
 }
 
 .sidebar-open-button:hover {
@@ -200,7 +212,7 @@
 .sidebar-submenu-childrens {
     display: flex;
     flex-direction: column;
-    padding-left: 50px;
+    padding-left: 30px;
     overflow: hidden;
     height: 0px;
     transition: all 0.3s;
@@ -222,7 +234,7 @@
 
 .sidebar-submenu {
     position: fixed; /* Changed to fixed */
-    background-color: var(--background-color);
+    background-color: var(--primary-color);
     box-shadow: var(--shadow-xl);
     border: 1px solid var(--border-color);
     border-radius: 8px;
@@ -242,6 +254,10 @@
 
 .item-clicked {
     background-color: var(--hover-action-color);
+    color:var(--icon-hover);
+    .sidebar-menu-item-icon {
+        color: var(--icon-hover);
+    }
 }
 
 .sidebar-submenu-item:hover {
@@ -273,14 +289,30 @@
 @media screen and (max-width: 768px) {
     .sidebar-container {
         position: fixed;
-        z-index: 100;
+        top:0;
+        z-index: 2000;
         left: -100%;
-        width: 0px;
+        width: 100px;
+        height: 100vh;
     }
 
     .sidebar-container.active {
-        left: 0;
+        left: 0px;
         width: 100%;
+        
+    }
+
+    .sidebar-menu-container {
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+        position: relative;
+        padding: 0px 5px;
+        display: flex;
+        flex-direction: column;
+        margin-right: 8px;
+        scrollbar-width: thin; /* For Firefox */
+        scrollbar-color: var(--hover-action-color) var(--background-color); /* For Firefox */
     }
 
     .sidebar-close-button {
@@ -321,4 +353,7 @@
         border-left: 2px solid var(--border-color);
         font-size: 14px;
     }
+
+
+
 }

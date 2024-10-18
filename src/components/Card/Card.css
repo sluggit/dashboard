@@ -2,12 +2,13 @@
     background-color: var(--primary-color);
     position: relative;
     box-shadow: var(--shadow-xl);
+    border:0px solid var(--border-color);
     display: flex;
     flex-direction: column;
     padding:0px;
     border-radius: 16px;/*16px*/
     width: 100%;
-    height:fit-content;
+    
 }
 .cardheader-container{
     width:100%;

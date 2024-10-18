@@ -5,22 +5,19 @@
     justify-content:space-between;
     align-items:center;
     padding: 5px 16px;
-    
     border-bottom:var(--border-color) 0px solid;
     position:sticky;
     top:0;
     z-index:10;
     color:var(--primary-text);
-    box-shadow: var(--shadow-xl); 
     background:var(--glas-color);
     backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 .header-hamburger-nav{
     display:flex;
-    align-items: center;
-     
+    align-items: center; 
 }
 
 .header-company-name{
@@ -33,10 +30,11 @@
     display:none;
    cursor: pointer;
     color:var(--icon-color);
-    font-size: 22px;
+    font-size: 24px;  
 }
 
 .header-nav{
+    height:100%;
     display:flex;
     align-items: center;
     gap:20px;
@@ -46,16 +44,26 @@
     color:var(--icon-color);
 }
 
+.header-nav div{
+  cursor: pointer;
+}
+
+.header-nav div:hover{
+    color:var(--icon-hover);
+}
+
 .header-profile-image{
-    height:45px;
-    width:45px;
+    height:40px;
+    width:40px;
     border-radius:50%;
     background:black;
 }
 @media screen and (max-width: 768px) {
     .header-hamburger{
         display:block;
-      
-     
+    }
+
+    .header-company-name{
+        display:none;
     }
 }

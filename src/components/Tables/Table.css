@@ -1,0 +1,83 @@
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  .table-container.scrollable {
+    overflow-x: scroll;
+  }
+  
+  .table-container th, .table-container td {
+    padding: 15px 10px;
+    border: 1px solid var(--border-color);
+    text-align: left;
+  }
+  
+  .table-container tbody tr:hover {
+    background-color: var(--hover-action-color);
+  }
+
+  .table-item-checked-info{
+    width:100%;
+    background-color:var(--info-box);
+    padding:10px;
+    border-radius:5px;
+    margin-bottom:5px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    color:var(--primary-text);
+  }
+
+  .table-item-checked-info > button{
+    background:inherit;
+  }
+
+  .table-container button{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    color:var(--primary-text);
+    height:20px;
+    background:var(--hover-action-color);
+    border-radius:4px;
+    font-size:12px;
+    
+  }
+
+  .table-search{
+    width:200px;
+    margin:10px 0;
+  }
+
+  .table-button-section{
+    display:flex;
+    gap:5px;
+    padding:5px 0;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+  }
+  
+  thead {
+    width: 100%;
+    height: 30px;
+    border-collapse: collapse;
+    color: var(--primary-text);
+  }
+  
+  tbody {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  @media (max-width: 500px) {
+    .table-container {
+      width: 350px;
+      display:block;
+      overflow-x: auto;
+    }
+  }
